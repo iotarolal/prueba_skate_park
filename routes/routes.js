@@ -16,7 +16,6 @@ router.get('/admin', protected_routes, async (req, res) => {
   const user = req.session.user
   // me traigo a lista de todos los usuarios
   const users = await get_users()
-    console.log(users)
   res.render('admin.html', { user, users })
 });
 

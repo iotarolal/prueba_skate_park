@@ -37,7 +37,7 @@
           {% for user in users %}
           <tr>
             <th scope="row">{{ user.id }}</th>
-            <td> <img src=" {{ user.foto }} "> </td>
+            <td><div style="background-image:url('img/{{user.foto}}')"></div></td>
             <td>{{ user.nombre }}</td>
             <td>{{ user.anos_experiencia }}</td>
             <td>{{ user.especialidad }}</td>
@@ -46,6 +46,8 @@
         {% endfor %}
         </tbody>
       </table>
+      <a href="/lista">Lista de Participantes</a>
+
 <!-- 
 inserto codigo profe
 -->
