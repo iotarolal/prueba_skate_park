@@ -42,17 +42,15 @@
               <td>{{ user.nombre }}</td>
               <td>{{ user.anos_experiencia }}</td>
               <td>{{ user.especialidad }}</td>
-
-
-<!--              <td><input data-id="{{ user.id }}" type="text" class="check-auth" {% if user.estado %} aprobado {% else %}En revision{% endif %}></td>
--->            </tr>
+              <td><a>{% if user.estado %} aprobado {% else %} En revision {% endif %} </a> </td>
+            </tr>
           {% endfor %}
         </tbody>
       </table>
-      <a href="/login">Iniciar Sesión</a>
-      <a href="/register">Registrarme</a>  <!--</p> -->
-      <a href="/datos">Actualiza Datos</a>
-      <a href="/admin">administración</a><!--</p> -->
+      <a href="/login"> Iniciar Sesión  </a>
+      <a href="/register">  Registrarme  </a>  <!--</p> -->
+      <a href="/datos">  Actualiza Datos  </a>
+      <a href="/admin">  administración  </a><!--</p> -->
     </div>
     {% endblock %}
   </body>
