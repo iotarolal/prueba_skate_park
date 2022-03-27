@@ -35,14 +35,14 @@ router.put('/users/:id', async (req, res) => {
 
 router.get('/datos', protected_routes, async (req, res) => {
 //      const user = req.session.user
-      const user = await get_user(req.session.user.email)
-      res.render('datos.html', { user })
+    const user = await get_user(req.session.user.email)
+    res.render('datos.html', { user })
 });
 
 router.get('/lista', protected_routes, async (req, res) => {
-      const user = req.session.user
-      const users = await get_users()
-      res.render('index.html', { users })
+    const user = req.session.user
+    const users = await get_users()
+    res.render('index.html', { users })
 });
 
 
