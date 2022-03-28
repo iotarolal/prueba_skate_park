@@ -104,7 +104,13 @@ router.post('/datos', async (req, res) => {
 
 // Elimina Usuario
 router.get('/eliminar/:email', async (req, res) => {
-    await eliminarusuario(req.params.email);
+    try {
+        await eliminarusuario(req.params.email);
+//        req.flash('errors', 'Usuario Eliminado')
+
+    } catch(error) {
+        return res.status(400).send(error)
+    }
     res.redirect('/logout')
 });
 
