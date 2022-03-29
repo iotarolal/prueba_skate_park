@@ -48,7 +48,8 @@ router.post('/register', async (req, res) => {
     const password_confirm = req.body.password_confirm
     const year_experience = req.body.year_experience
     const specialty = req.body.specialty
-    const photo = req.body.photo
+    const photo = req.files.photo.name 
+    const fileimagen = req.files.photo
 
     // 2. validar que contraseñas sean iguales
     if (password != password_confirm) {
@@ -63,8 +64,12 @@ router.post('/register', async (req, res) => {
         return res.redirect('/register')
     }
 
+    // encripto contraseña y grabo registro en base de datos
     const password_encrypt = await bcrypt.hash(password, 10)
     await create_user(email, name, password_encrypt,  year_experience, specialty, photo)
+
+    // grabo file imagen en directorio statis/img
+    await fileimagen.mv(`static/img/${photo}`)
 
     // 4. Guardo el nuevo usuario en sesión
     req.session.user = { name, email, password }
